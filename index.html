@@ -17,26 +17,26 @@
 <body>
     <div class="container">
         <h1>Uzupełnij formularz</h1>
-        <form id="form" novalidate>
+        <form id="form" novalidate aria-labelledby="formTitle">
             <div class="mb-3">
                 <label for="firstName" class="form-label">Imię</label>
-                <input type="text" class="form-control" id="firstName" placeholder="Wpisz imię" required>
+                <input type="text" class="form-control" id="firstName" placeholder="Wpisz imię" required aria-required="true" aria-describedby="firstNameHelp">
                 <div class="invalid-feedback">Proszę podać imię.</div>
             </div>
             <div class="mb-3">
                 <label for="lastName" class="form-label">Nazwisko</label>
-                <input type="text" class="form-control" id="lastName" placeholder="Wpisz nazwisko" required>
+                <input type="text" class="form-control" id="lastName" placeholder="Wpisz nazwisko" required aria-required="true" aria-describedby="lastNameHelp" required>
                 <div class="invalid-feedback">Proszę podać nazwisko.</div>
             </div>
             <div class="mb-3">
                 <label for="street" class="form-label">Ulica</label>
-                <input type="text" class="form-control" id="street" placeholder="Wpisz ulicę" required>
+                <input type="text" class="form-control" id="street" placeholder="Wpisz ulicę" required aria-required="true" aria-describedby="streetHelp">
                 <div class="invalid-feedback">Proszę podać ulicę.</div>
             </div>
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="country" class="form-label">Kraj</label>
-                    <select class="form-select" id="country" required>
+                    <select class="form-select" id="country" required aria-required="true" aria-describedby="countryHelp">
                         <option value="">Wybierz kraj</option>
                     </select>
                     <div class="invalid-feedback">Proszę wybrać kraj.</div>
@@ -44,7 +44,7 @@
                 <div class="col-md-6 mb-3">
                     <label for="phoneNumber" class="form-label">Numer telefonu komórkowego</label>
                     <div class="input-group has-validation">
-                        <select class="form-select" id="countryCode" aria-label="Wybierz numer kierunkowy" required pattern="^\d{9}$">
+                        <select class="form-select" id="countryCode" pattern="^\d{9}$" required aria-required="true" aria-label="Wybierz numer kierunkowy" >
                             <option selected>Wybierz...</option>
                             <option value="+48">+48 (Polska)</option>
                             <option value="+1">+1 (Stany Zjednoczone)</option>
@@ -59,25 +59,25 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="city" class="form-label">Miasto</label>
-                    <input type="text" class="form-control" id="city" placeholder="Wpisz miasto" required>
+                    <input type="text" class="form-control" id="city" placeholder="Wpisz miasto" required aria-required="true" aria-describedby="cityHelp">
                     <div class="invalid-feedback">Proszę podać miasto.</div>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="zipCode" class="form-label">Kod pocztowy</label>
-                    <input type="text" class="form-control" id="zipCode" placeholder="Wpisz kod pocztowy" required pattern="^\d{2}-\d{3}$">
+                    <input type="text" class="form-control" id="zipCode" placeholder="Wpisz kod pocztowy" pattern="^\d{2}-\d{3}$" aria-required="true" aria-describedby="zipCodeHelp">
                     <div class="invalid-feedback">Proszę podać kod pocztowy w formacie XX-XXX.</div>
                 </div>
             </div>
             <div class="mb-3">
                 <label class="form-label">Rodzaj przesyłki</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="shipping" value="DPD" id="dpd">
+                    <input class="form-check-input" type="radio" name="shipping" value="DPD" id="dpd" aria-labelledby="dpdLabel">
                     <label class="form-check-label" for="dpd">
                         <i class="fas fa-truck"></i> DPD
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="shipping" value="InPost" id="inpost">
+                    <input class="form-check-input" type="radio" name="shipping" value="InPost" id="inpost" aria-labelledby="inpostLabel">
                     <label class="form-check-label" for="inpost">
                         <i class="fas fa-box"></i> InPost
                     </label>
@@ -87,19 +87,19 @@
             <div class="mb-3">
                 <label class="form-label">Rodzaj płatności</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="payment" value="karta" id="card" onclick="toggleBlikInput()">
+                    <input class="form-check-input" type="radio" name="payment" value="karta" id="card" onclick="toggleBlikInput()" aria-labelledby="cardLabel">
                     <label class="form-check-label" for="card">
                         <i class="fas fa-credit-card"></i> Karta
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="payment" value="blik" id="blik" onclick="toggleBlikInput()">
+                    <input class="form-check-input" type="radio" name="payment" value="blik" id="blik" onclick="toggleBlikInput()" aria-labelledby="blikLabel">
                     <label class="form-check-label" for="blik">
                         <i class="fas fa-mobile-alt"></i> Blik
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="payment" value="pośrednik" id="pośrednik" onclick="toggleBlikInput()">
+                    <input class="form-check-input" type="radio" name="payment" value="pośrednik" id="pośrednik" onclick="toggleBlikInput()" aria-labelledby="pośrednikLabel">
                     <label class="form-check-label" for="pośrednik">
                         <i class="fas fa-exchange-alt"></i> Pośrednik płatności
                     </label>
@@ -107,23 +107,23 @@
                 <div class="invalid-feedback">Proszę wybrać rodzaj płatności.</div>
                 <div class="mb-3" id="blikInput" style="display: none; margin-bottom: 2rem;">
                     <label for="blikNumber" class="form-label">Podaj kod Blik</label>
-                    <input type="number" class="form-control" id="blikNumber" placeholder="Wpisz kod Blik">
+                    <input type="number" class="form-control" id="blikNumber" placeholder="Wpisz kod Blik" aria-describedby="blikHelp">>
                     <div class="invalid-feedback">Kod Blik musi składać się z 6 cyfr.</div>
                 </div>
             </div>
 
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" required>
+                <input type="email" class="form-control" id="exampleInputEmail1" required aria-required="true" aria-describedby="emailHelp">
                 <div class="invalid-feedback">Proszę podać poprawny adres email.</div>
             </div>
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="vatUE">
+                <input type="checkbox" class="form-check-input" id="vatUE" aria-describedby="vatCheckHelp">
                 <label class="form-check-label" for="vatUE">VAT UE</label>
             </div>
             <div class="mb-3" id="vat-info" style="display: none;">
                 <label for="vatNumber" class="form-label">VAT Number</label>
-                <input type="text" class="form-control" id="vatNumber" aria-describedby="vatHelp" pattern="^[A-Z]{2}\d{8,10}$">
+                <input type="text" class="form-control" id="vatNumber" pattern="^[A-Z]{2}\d{8,10}$" aria-describedby="vatHelp" >
                 <div id="vatHelp" class="form-text">Kod kraju państwa członkowskiego i seria cyfr unikalnych dla tego
                     podmiotu gospodarczego.</div>
                 <div class="mb-3">
